@@ -1,0 +1,33 @@
+<form class="wheater__search" action="" (ngSubmit)="onSubmit()">
+  <input type="text" placeholder="Enter City Name..." name="city" [(ngModel)]="cityName" />
+</form>
+<div class="main__container" *ngIf="weatherData">
+  <div class="wheater__container">
+    <div class="wheater__bg" [ngClass]="{
+        'day': weatherData.main.temp >= 15,
+        'cold': weatherData.main.temp < 15
+      }"></div>
+    <div class="wheater__upper">
+      <h2>{{ weatherData.name }}</h2>
+      <h3>{{ weatherData.main.temp | number: "1.0-0" }}°C</h3>
+    </div>
+    <div class="wheater__lower">
+      <div>
+        <img src="/assets/icons/wi-hot.svg" alt="Hot" />
+        <p> {{ weatherData.main.temp_max }}°C </p>
+      </div>
+      <div>
+        <img src="/assets/icons/wi-humidity.svg" alt="humidity" />
+        <p> {{ weatherData.main.humidity }}% </p>
+      </div>
+      <div>
+        <img src="/assets/icons/wi-snowflake-cold.svg" alt="cold" />
+        <p> {{ weatherData.main.temp_min }}°C </p>
+      </div>
+      <div>
+        <img src="/assets/icons/wi-windy.svg" alt="windy" />
+        <p> {{ weatherData.wind.speed }}km/h </p>
+      </div>
+    </div>
+  </div>
+</div>

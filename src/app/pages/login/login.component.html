@@ -1,0 +1,17 @@
+<div class="login__container">
+  <form class="login" action="" [formGroup]="formLogin" (ngSubmit)="save()">
+    <label for="user">User:</label>
+    <input [ngClass]="{
+      success: userField!.touched,
+      failed: userField!.errors && userField!.touched
+    }" id="user" formControlName="user" type="text">
+    <label for="pass">Password:</label>
+    <input [ngClass]="{
+      success: passField!.touched,
+      failed: passField!.errors && passField!.touched
+    }" id="pass" formControlName="pass" type="password">
+    <div>
+      <button>Confirm</button>
+    </div>
+  </form>
+</div>
